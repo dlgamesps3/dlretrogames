@@ -1,97 +1,382 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="DL RETRO GAMES: jogos clássicos para baixar e jogar online."><title>DL RETRO GAMES | Jogos Retrô</title><link rel="stylesheet" href="css/style.css">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DL RETRO GAMES: jogos clássicos para baixar e jogar online.">
+<title>DL RETRO GAMES | Jogos Retrô</title>
+<link rel="stylesheet" href="css/style.css">
+
 <style>
 body{background:radial-gradient(ellipse at 50% -15%,rgba(0,125,255,.23),transparent 48%),linear-gradient(145deg,#050914,#081a31 55%,#050914)!important;color:#edf6ff}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(70,160,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(70,160,255,.035) 1px,transparent 1px);background-size:42px 42px}
 header{background:rgba(4,10,23,.9)!important;backdrop-filter:blur(16px);border-bottom:1px solid rgba(65,170,255,.2)}
 .game-card,.console-card,.about{background:rgba(9,22,42,.9)!important;border:1px solid rgba(75,165,255,.2)!important;box-shadow:0 12px 35px rgba(0,0,0,.2);transition:.2s}
 .game-card:hover,.console-card:hover{transform:translateY(-4px);border-color:#29aaff!important;box-shadow:0 14px 38px rgba(0,130,255,.16)}
-.game-info{display:flex;flex-direction:column;gap:7px}.game-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.game-info{display:flex;flex-direction:column;gap:7px}
+.game-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .game-action{display:inline-flex;justify-content:center;align-items:center;padding:9px 12px;border-radius:9px;text-decoration:none;font-weight:800;font-size:11px;letter-spacing:.05em;background:linear-gradient(135deg,#087bdc,#20baff);color:white}
 .game-action.download{background:#142e4c;border:1px solid #32628b}
 #access-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at 50% 0%,rgba(0,136,255,.22),transparent 55%),rgba(2,7,17,.98);overflow:auto}
 .gate-card{width:min(900px,100%);padding:clamp(22px,4vw,40px);border:1px solid rgba(75,174,255,.3);border-radius:24px;background:linear-gradient(145deg,#0a1c34,#050d1c);box-shadow:0 25px 90px #0009}
-.gate-brand{text-align:center;margin-bottom:26px}.gate-logo{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#087bdc,#40d4ff);font-weight:1000;font-size:22px}
-.gate-brand h1{font-size:clamp(25px,4vw,36px);margin:12px 0 5px;color:white}.gate-brand p,.gate-muted{color:#9db6d3;margin:0}
-.plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.plan-option{text-align:left;padding:22px;border:1px solid #315477;border-radius:17px;background:#0a1d35;color:#eef7ff;cursor:pointer}
-.plan-option.selected,.plan-option:hover{border-color:#2daeff;box-shadow:0 0 0 2px #2daeff33}.plan-option h2{font-size:22px;margin:0 0 8px}.plan-option p{color:#a9bfd9;line-height:1.5}.plan-option ul{padding-left:19px;color:#d8e8f8;line-height:1.9}.plan-price{font-weight:900;color:#54caff}
-.gate-button{width:100%;border:0;border-radius:11px;padding:14px;background:linear-gradient(100deg,#087bdc,#21baff);color:white;font-weight:900;cursor:pointer;margin-top:18px}.gate-button:disabled{opacity:.4;cursor:not-allowed}
-.gate-step{display:none;max-width:440px;margin:auto}.gate-step.active{display:block}.gate-step h2{text-align:center}.gate-field{display:block;margin-top:15px;color:#c5d8ed;font-size:13px;font-weight:700}.gate-field input{box-sizing:border-box;width:100%;margin-top:7px;padding:13px;border-radius:10px;border:1px solid #315477;background:#061326;color:white;font-size:15px}
-.gate-note{font-size:12px;line-height:1.55;color:#8faac8;text-align:center;margin-top:15px}.gate-back{display:block;margin:14px auto;background:none;border:0;color:#8bcfff;text-decoration:underline;cursor:pointer}.gate-error{color:#ffb6b6;text-align:center;font-size:13px;margin-top:10px}
+.gate-brand{text-align:center;margin-bottom:26px}
+.gate-logo{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:15px;background:linear-gradient(135deg,#087bdc,#40d4ff);font-weight:1000;font-size:22px}
+.gate-brand h1{font-size:clamp(25px,4vw,36px);margin:12px 0 5px;color:white}
+.gate-brand p,.gate-muted{color:#9db6d3;margin:0}
+.plan-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.plan-option{text-align:left;padding:22px;border:1px solid #315477;border-radius:17px;background:#0a1d35;color:#eef7ff;cursor:pointer}
+.plan-option.selected,.plan-option:hover{border-color:#2daeff;box-shadow:0 0 0 2px #2daeff33}
+.plan-option h2{font-size:22px;margin:0 0 8px}
+.plan-option p{color:#a9bfd9;line-height:1.5}
+.plan-option ul{padding-left:19px;color:#d8e8f8;line-height:1.9}
+.plan-price{font-weight:900;color:#54caff}
+.gate-button{width:100%;border:0;border-radius:11px;padding:14px;background:linear-gradient(100deg,#087bdc,#21baff);color:white;font-weight:900;cursor:pointer;margin-top:18px}
+.gate-button:disabled{opacity:.4;cursor:not-allowed}
+.gate-step{display:none;max-width:440px;margin:auto}
+.gate-step.active{display:block}
+.gate-step h2{text-align:center}
+.gate-field{display:block;margin-top:15px;color:#c5d8ed;font-size:13px;font-weight:700}
+.gate-field input{box-sizing:border-box;width:100%;margin-top:7px;padding:13px;border-radius:10px;border:1px solid #315477;background:#061326;color:white;font-size:15px}
+.gate-note{font-size:12px;line-height:1.55;color:#8faac8;text-align:center;margin-top:15px}
+.gate-back{display:block;margin:14px auto;background:none;border:0;color:#8bcfff;text-decoration:underline;cursor:pointer}
+.gate-error{color:#ffb6b6;text-align:center;font-size:13px;margin-top:10px}
 @media(max-width:650px){.plan-grid{grid-template-columns:1fr}.game-actions{flex-direction:column}.game-action{width:100%;box-sizing:border-box}}
 </style>
-</head><body>
-<div id="access-gate"><div class="gate-card">
- <div class="gate-brand"><div class="gate-logo">DL</div><h1>DL <span style="color:#4bc8ff">RETRO GAMES</span></h1><p>Escolha seu plano para continuar</p></div>
- <div id="plan-step" class="gate-step active"><div class="plan-grid">
-  <button class="plan-option" type="button" data-plan="Grátis"><h2>Plano Grátis</h2><p>Para conhecer a plataforma e aproveitar os conteúdos liberados.</p><ul><li>Acesso à seleção gratuita</li><li>Catálogo de jogos grátis</li><li>Novidades selecionadas</li></ul><div class="plan-price">ACESSO GRATUITO</div></button>
-  <button class="plan-option" type="button" data-plan="VIP"><h2>Plano VIP</h2><p>Para aproveitar a experiência completa da plataforma.</p><ul><li>Acesso ao catálogo VIP</li><li>Jogos e downloads exclusivos</li><li>Mais opções de jogos online</li></ul><div class="plan-price">ACESSO VIP</div></button>
- </div><button id="continue-plan" class="gate-button" type="button" disabled>CONTINUAR</button><p class="gate-note">Selecione o mesmo plano que foi contratado.</p></div>
- <div id="login-step" class="gate-step"><h2>Entrar na plataforma</h2><p class="gate-muted" id="selected-plan-label" style="text-align:center"></p>
-  <form id="gate-login"><label class="gate-field">Usuário<input id="gate-user" autocomplete="username" required placeholder="Digite seu usuário"></label><label class="gate-field">Senha<input id="gate-pass" type="password" autocomplete="current-password" required placeholder="Digite sua senha"></label><div id="gate-error" class="gate-error"></div><button class="gate-button" type="submit">ENTRAR</button></form>
-  <p class="gate-note">Use os dados de acesso fornecidos pelo administrador.</p><button class="gate-back" id="back-plan" type="button">Voltar para os planos</button>
- </div>
-</div></div>
+</head>
 
-<header><div class="container"><nav class="nav"><a class="brand" href="index.html"><span class="brand-mark">DL</span><span>DL <em>RETRO GAMES</em></span></a><div class="navlinks"><a href="#inicio">Início</a><a href="#plataformas">Consoles</a><a href="#catalogo">Jogos</a><a href="#sobre">Sobre</a></div><a class="nav-cta" href="#catalogo">VER CATÁLOGO ↗</a></nav></div></header>
-<main><div class="hero" id="inicio"><div class="container hero-grid"><div><div class="eyebrow">DIVERSÃO EM UM SÓ LUGAR.</div><h1>Explore nossa biblioteca<br><span>baixe seus jogos e jogue online.</span></h1><p class="lead">Explore uma biblioteca de jogos clássicos com o DL RETRO GAMES. Baixe seus favoritos e jogue online diretamente pelo navegador, tudo em uma plataforma feita para oferecer praticidade, variedade e nostalgia.</p><a class="btn primary" href="#catalogo">Explorar jogos →</a><a class="btn secondary" href="#plataformas">Ver consoles</a></div><div class="hero-image"><img src="img/Banner/Banner01.png" alt="Ilustração original de consoles retrô"></div></div></div>
-<div class="strip"><div class="container strip-grid"><div class="strip-item"><span class="strip-icon">▣</span><div><strong>Consoles clássicos</strong><small>Várias gerações</small></div></div><div class="strip-item"><span class="strip-icon">⌕</span><div><strong>Jogos PT-BR 🇧🇷</strong><small>Jogos Traduzidos</small></div></div><div class="strip-item"><span class="strip-icon">♡</span><div><strong>Jogos online</strong><small>Via navegador</small></div></div><div class="strip-item"><span class="strip-icon">＋</span><div><strong>Novos jogos</strong><small>Catálogo em expansão</small></div></div></div></div>
-<section id="plataformas"><div class="container"><div class="section-head"><div><div class="kicker">ESCOLHA SUA GERAÇÃO</div><h2>Explore por console</h2></div><p>Relembre os videogames que fizeram história.</p></div><div class="console-grid">
+<body>
+
+<div id="access-gate">
+<div class="gate-card">
+<div class="gate-brand">
+<div class="gate-logo">DL</div>
+<h1>DL <span style="color:#4bc8ff">RETRO GAMES</span></h1>
+<p>Escolha seu plano para continuar</p>
+</div>
+
+<div id="plan-step" class="gate-step active">
+<div class="plan-grid">
+
+<button class="plan-option" type="button" data-plan="Grátis">
+<h2>Plano Grátis</h2>
+<p>Para conhecer a plataforma e aproveitar os conteúdos liberados.</p>
+<ul>
+<li>Acesso à seleção gratuita</li>
+<li>Catálogo de jogos grátis</li>
+<li>Novidades selecionadas</li>
+</ul>
+<div class="plan-price">ACESSO GRATUITO</div>
+</button>
+
+<button class="plan-option" type="button" data-plan="VIP">
+<h2>Plano VIP</h2>
+<p>Para aproveitar a experiência completa da plataforma.</p>
+<ul>
+<li>Acesso ao catálogo VIP</li>
+<li>Jogos e downloads exclusivos</li>
+<li>Mais opções de jogos online</li>
+</ul>
+<div class="plan-price">ACESSO VIP</div>
+</button>
+
+</div>
+<button id="continue-plan" class="gate-button" type="button" disabled>CONTINUAR</button>
+<p class="gate-note">Selecione o mesmo plano que foi contratado.</p>
+</div>
+
+<div id="login-step" class="gate-step">
+<h2>Entrar na plataforma</h2>
+<p class="gate-muted" id="selected-plan-label" style="text-align:center"></p>
+
+<form id="gate-login">
+<label class="gate-field">Usuário
+<input id="gate-user" autocomplete="username" required placeholder="Digite seu usuário">
+</label>
+
+<label class="gate-field">Senha
+<input id="gate-pass" type="password" autocomplete="current-password" required placeholder="Digite sua senha">
+</label>
+
+<div id="gate-error" class="gate-error"></div>
+<button class="gate-button" type="submit">ENTRAR</button>
+</form>
+
+<p class="gate-note">Use os dados de acesso fornecidos pelo administrador.</p>
+<button class="gate-back" id="back-plan" type="button">Voltar para os planos</button>
+</div>
+</div>
+</div>
+
+<header>
+<div class="container">
+<nav class="nav">
+<a class="brand" href="index.html"><span class="brand-mark">DL</span><span>DL <em>RETRO GAMES</em></span></a>
+<div class="navlinks">
+<a href="#inicio">Início</a>
+<a href="#plataformas">Consoles</a>
+<a href="#catalogo">Jogos</a>
+<a href="#sobre">Sobre</a>
+</div>
+<a class="nav-cta" href="#catalogo">VER CATÁLOGO ↗</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<div class="hero" id="inicio">
+<div class="container hero-grid">
+<div>
+<div class="eyebrow">DIVERSÃO EM UM SÓ LUGAR.</div>
+<h1>Explore nossa biblioteca<br><span>baixe seus jogos e jogue online.</span></h1>
+<p class="lead">Explore uma biblioteca de jogos clássicos com o DL RETRO GAMES. Baixe seus favoritos e jogue online diretamente pelo navegador, tudo em uma plataforma feita para oferecer praticidade, variedade e nostalgia.</p>
+<a class="btn primary" href="#catalogo">Explorar jogos →</a>
+<a class="btn secondary" href="#plataformas">Ver consoles</a>
+</div>
+<div class="hero-image">
+<img src="img/Banner/Banner01.png" alt="Ilustração original de consoles retrô">
+</div>
+</div>
+</div>
+
+<div class="strip">
+<div class="container strip-grid">
+<div class="strip-item"><span class="strip-icon">▣</span><div><strong>Consoles clássicos</strong><small>Várias gerações</small></div></div>
+<div class="strip-item"><span class="strip-icon">⌕</span><div><strong>Jogos PT-BR 🇧🇷</strong><small>Jogos Traduzidos</small></div></div>
+<div class="strip-item"><span class="strip-icon">♡</span><div><strong>Jogos online</strong><small>Via navegador</small></div></div>
+<div class="strip-item"><span class="strip-icon">＋</span><div><strong>Novos jogos</strong><small>Catálogo em expansão</small></div></div>
+</div>
+</div>
+
+<section id="plataformas">
+<div class="container">
+<div class="section-head">
+<div><div class="kicker">ESCOLHA SUA GERAÇÃO</div><h2>Explore por console</h2></div>
+<p>Relembre os videogames que fizeram história.</p>
+</div>
+<div class="console-grid">
 <a class="console-card" href="#catalogo" data-pick="SNES"><img src="img/consoles/snes.svg" alt=""><span><b>Super Nintendo</b><small>Era 16-bit</small></span></a>
 <a class="console-card" href="#catalogo" data-pick="Mega Drive"><img src="img/consoles/megadrive.svg" alt=""><span><b>Mega Drive</b><small>SEGA clássica</small></span></a>
 <a class="console-card" href="#catalogo" data-pick="PS1"><img src="img/consoles/ps1.svg" alt=""><span><b>PlayStation</b><small>A geração 3D</small></span></a>
 <a class="console-card" href="#catalogo" data-pick="GBA"><img src="img/consoles/gba.svg" alt=""><span><b>Game Boy Advance</b><small>Clássicos portáteis</small></span></a>
-</div></div></section>
-<div class="catalog" id="catalogo"><section><div class="container"><div class="section-head"><div><div class="kicker">CATÁLOGO DL</div><h2>Jogos em destaque</h2></div><p>Escolha um jogo para conhecer mais.</p></div>
-<div class="tools"><input id="search" class="search" placeholder="Buscar jogo ou console..." aria-label="Buscar jogo"><button class="filter active" data-filter="Todos">Todos</button><button class="filter" data-filter="SNES">SNES</button><button class="filter" data-filter="Mega Drive">Mega Drive</button><button class="filter" data-filter="PS1">PS1</button><button class="filter" data-filter="GBA">GBA</button></div>
-<div class="game-grid" id="games"><a class="game-card" href="pages/jogos/super-mario-world.html" data-name="super mario world" data-system="SNES">
+</div>
+</div>
+</section>
+
+<div class="catalog" id="catalogo">
+<section>
+<div class="container">
+<div class="section-head">
+<div><div class="kicker">CATÁLOGO DL</div><h2>Jogos em destaque</h2></div>
+<p>Escolha um jogo para conhecer mais.</p>
+</div>
+
+<div class="tools">
+<input id="search" class="search" placeholder="Buscar jogo ou console..." aria-label="Buscar jogo">
+<button class="filter active" data-filter="Todos">Todos</button>
+<button class="filter" data-filter="SNES">SNES</button>
+<button class="filter" data-filter="Mega Drive">Mega Drive</button>
+<button class="filter" data-filter="PS1">PS1</button>
+<button class="filter" data-filter="GBA">GBA</button>
+</div>
+
+<div class="game-grid" id="games">
+
+<a class="game-card" href="pages/jogos/super-mario-world.html" data-name="super mario world" data-system="SNES">
 <img src="img/capas/super-mario-world.svg" alt="Capa ilustrada de Super Mario World">
-<div class="game-info"><strong>Super Mario World</strong><small>Plataforma · 1990</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/super-mario-world.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/super-mario-world.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Super Mario World</strong><small>Plataforma · 1990</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/super-mario-world.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/super-mario-world.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/donkey-kong-country.html" data-name="donkey kong country" data-system="SNES">
 <img src="img/capas/donkey-kong-country.svg" alt="Capa ilustrada de Donkey Kong Country">
-<div class="game-info"><strong>Donkey Kong Country</strong><small>Aventura · 1994</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/donkey-kong-country.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/donkey-kong-country.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Donkey Kong Country</strong><small>Aventura · 1994</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/donkey-kong-country.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/donkey-kong-country.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/zelda-link-to-the-past.html" data-name="the legend of zelda: a link to the past" data-system="SNES">
 <img src="img/capas/zelda-link-to-the-past.svg" alt="Capa ilustrada de The Legend of Zelda: A Link to the Past">
-<div class="game-info"><strong>The Legend of Zelda: A Link to the Past</strong><small>Aventura · 1991</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/zelda-link-to-the-past.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/zelda-link-to-the-past.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>The Legend of Zelda: A Link to the Past</strong><small>Aventura · 1991</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/zelda-link-to-the-past.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/zelda-link-to-the-past.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/sonic-the-hedgehog-2.html" data-name="sonic the hedgehog 2" data-system="Mega Drive">
 <img src="img/capas/sonic-the-hedgehog-2.svg" alt="Capa ilustrada de Sonic the Hedgehog 2">
-<div class="game-info"><strong>Sonic the Hedgehog 2</strong><small>Plataforma · 1992</small><span class="tag">MEGA DRIVE</span><div class="game-actions"><a class="game-action" href="pages/jogos/sonic-the-hedgehog-2.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/sonic-the-hedgehog-2.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Sonic the Hedgehog 2</strong><small>Plataforma · 1992</small><span class="tag">MEGA DRIVE</span><div class="game-actions"><a class="game-action" href="pages/jogos/sonic-the-hedgehog-2.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/sonic-the-hedgehog-2.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/streets-of-rage-2.html" data-name="streets of rage 2" data-system="Mega Drive">
 <img src="img/capas/streets-of-rage-2.svg" alt="Capa ilustrada de Streets of Rage 2">
-<div class="game-info"><strong>Streets of Rage 2</strong><small>Ação · 1992</small><span class="tag">MEGA DRIVE</span><div class="game-actions"><a class="game-action" href="pages/jogos/streets-of-rage-2.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/streets-of-rage-2.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Streets of Rage 2</strong><small>Ação · 1992</small><span class="tag">MEGA DRIVE</span><div class="game-actions"><a class="game-action" href="pages/jogos/streets-of-rage-2.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/streets-of-rage-2.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/mortal-kombat.html" data-name="mortal kombat Ultimate 3" data-system="Mega Drive">
 <img src="img/capas/Mortal_kombat_Ultimate_3.jpg" alt="Capa ilustrada de Mortal Kombat">
-<div class="game-info"><strong>Mortal Kombat Ultimate 3</strong><small>Luta · 1993</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/mortal-kombat.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/mortal-kombat.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Mortal Kombat Ultimate 3</strong><small>Luta · 1993</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/mortal-kombat.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/mortal-kombat.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/zelda-link-to-the-past.html" data-name="Legend of Zelda The A Link to the Past" data-system="PS1">
 <img src="img/capas/Legend_of_Zelda_The_ A Link_to_the_Past.jpg" alt="Capa ilustrada de Legend of Zelda, The_ A Link to the Past">
-<div class="game-info"><strong>Legend of Zelda The A Link to the Past</strong><small>Plataforma · 1996</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/zelda-link-to-the-past.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/zelda-link-to-the-past.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Legend of Zelda The A Link to the Past</strong><small>Plataforma · 1996</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/zelda-link-to-the-past.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/zelda-link-to-the-past.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/tekken-3.html" data-name="tekken 3" data-system="PS1">
 <img src="img/capas/tekken-3.svg" alt="Capa ilustrada de Tekken 3">
-<div class="game-info"><strong>Tekken 3</strong><small>Luta · 1997</small><span class="tag">PS1</span><div class="game-actions"><a class="game-action" href="pages/jogos/tekken-3.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/tekken-3.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Tekken 3</strong><small>Luta · 1997</small><span class="tag">PS1</span><div class="game-actions"><a class="game-action" href="pages/jogos/tekken-3.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/tekken-3.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/gran-turismo.html" data-name="gran turismo" data-system="PS1">
 <img src="img/capas/gran-turismo.svg" alt="Capa ilustrada de Gran Turismo">
-<div class="game-info"><strong>Gran Turismo</strong><small>Corrida · 1997</small><span class="tag">PS1</span><div class="game-actions"><a class="game-action" href="pages/jogos/gran-turismo.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/gran-turismo.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Gran Turismo</strong><small>Corrida · 1997</small><span class="tag">PS1</span><div class="game-actions"><a class="game-action" href="pages/jogos/gran-turismo.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/gran-turismo.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/pokemon-emerald.html" data-name="pokémon emerald" data-system="GBA">
 <img src="img/capas/Super_Bomberman_5_Gold_Cartridge.jpg" alt="Capa ilustrada de Super Bomberman 5 Gold Cartridge">
-<div class="game-info"><strong>Super Bomberman 5 Gold Cartridge</strong><small>RPG · 2004</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/pokemon-emerald.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/pokemon-emerald.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Super Bomberman 5 Gold Cartridge</strong><small>RPG · 2004</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos/pokemon-emerald.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/pokemon-emerald.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/Super_Bomberman_5_Gold_Cartrid.html" data-name="metroid fusion" data-system="SNES">
 <img src="img/capas/Super_Bomberman_5_Gold_Cartridge.jpg" alt="Capa ilustrada de Metroid Fusion">
-<div class="game-info"><strong>Metroid Fusion</strong><small>Ação · 2002</small><span class="tag">GBA</span><div class="game-actions"><a class="game-action" href="pages/jogos/Super_Bomberman_5_Gold_Cartrid.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/Super_Bomberman_5_Gold_Cartrid.html">DOWNLOAD</a></div></div></a>
+<div class="game-info"><strong>Metroid Fusion</strong><small>Ação · 2002</small><span class="tag">GBA</span><div class="game-actions"><a class="game-action" href="pages/jogos/Super_Bomberman_5_Gold_Cartrid.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/Super_Bomberman_5_Gold_Cartrid.html">DOWNLOAD</a></div></div>
+</a>
+
 <a class="game-card" href="pages/jogos/the-minish-cap.html" data-name="the legend of zelda: the minish cap" data-system="GBA">
 <img src="img/capas/the-minish-cap.svg" alt="Capa ilustrada de The Legend of Zelda: The Minish Cap">
-<div class="game-info"><strong>The Legend of Zelda: The Minish Cap</strong><small>Aventura · 2004</small><span class="tag">GBA</span><div class="game-actions"><a class="game-action" href="pages/jogos/the-minish-cap.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/the-minish-cap.html">DOWNLOAD</a></div></div></a>
-<a class="game-card" href="pages/jogos/novo-jogo-01.html" data-name="novo jogo 01" data-system="SNES"><img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo"><div class="game-info"><strong>Novo jogo 01</strong><small>Edite nome, capa e console</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-01/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div></a>
-<a class="game-card" href="pages/jogos/novo-jogo-02.html" data-name="novo jogo 02" data-system="Mega Drive"><img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo"><div class="game-info"><strong>Novo jogo 02</strong><small>Edite nome, capa e console</small><span class="tag">MEGA DRIVE</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-02/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div></a>
-<a class="game-card" href="pages/jogos/novo-jogo-03.html" data-name="novo jogo 03" data-system="PS1"><img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo"><div class="game-info"><strong>Novo jogo 03</strong><small>Edite nome, capa e console</small><span class="tag">PS1</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-03/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div></a>
-<a class="game-card" href="pages/jogos/novo-jogo-04.html" data-name="novo jogo 04" data-system="GBA"><img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo"><div class="game-info"><strong>Novo jogo 04</strong><small>Edite nome, capa e console</small><span class="tag">GBA</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-04/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div></a>
-</div></div></section></div>
-<section id="sobre"><div class="container"><div class="about"><div><h2>Bem-vindo à DL RETRO GAMES</h2><p>Um projeto independente para celebrar os videogames clássicos. O catálogo vai crescer com mais jogos, consoles e novidades.</p></div><a class="btn primary" href="#inicio">Voltar ao topo ↑</a></div></div></section></main>
-<footer><div class="container footer-row"><span>© 2026 <b>DL RETRO GAMES</b></span><span>Universo dos jogos retrô</span></div></footer><script src="js/main.js"></script>
+<div class="game-info"><strong>The Legend of Zelda: The Minish Cap</strong><small>Aventura · 2004</small><span class="tag">GBA</span><div class="game-actions"><a class="game-action" href="pages/jogos/the-minish-cap.html">JOGAR ONLINE</a><a class="game-action download" href="pages/jogos/the-minish-cap.html">DOWNLOAD</a></div></div>
+</a>
+
+<a class="game-card" href="pages/jogos/novo-jogo-01.html" data-name="novo jogo 01" data-system="SNES">
+<img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo">
+<div class="game-info"><strong>Novo jogo 01</strong><small>Edite nome, capa e console</small><span class="tag">SNES</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-01/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div>
+</a>
+
+<a class="game-card" href="pages/jogos/novo-jogo-02.html" data-name="novo jogo 02" data-system="Mega Drive">
+<img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo">
+<div class="game-info"><strong>Novo jogo 02</strong><small>Edite nome, capa e console</small><span class="tag">MEGA DRIVE</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-02/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div>
+</a>
+
+<a class="game-card" href="pages/jogos/novo-jogo-03.html" data-name="novo jogo 03" data-system="PS1">
+<img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo">
+<div class="game-info"><strong>Novo jogo 03</strong><small>Edite nome, capa e console</small><span class="tag">PS1</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-03/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div>
+</a>
+
+<a class="game-card" href="pages/jogos/novo-jogo-04.html" data-name="novo jogo 04" data-system="GBA">
+<img src="img/capas/super-mario-world.svg" alt="Capa para novo jogo">
+<div class="game-info"><strong>Novo jogo 04</strong><small>Edite nome, capa e console</small><span class="tag">GBA</span><div class="game-actions"><a class="game-action" href="pages/jogos-online/novo-jogo-04/index.html">JOGAR ONLINE</a><a class="game-action download" href="#">DOWNLOAD</a></div></div>
+</a>
+
+</div>
+</div>
+</section>
+</div>
+
+<section id="sobre">
+<div class="container">
+<div class="about">
+<div>
+<h2>Bem-vindo à DL RETRO GAMES</h2>
+<p>Um projeto independente para celebrar os videogames clássicos. O catálogo vai crescer com mais jogos, consoles e novidades.</p>
+</div>
+<a class="btn primary" href="#inicio">Voltar ao topo ↑</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+<span>© 2026 <b>DL RETRO GAMES</b></span>
+<span>Universo dos jogos retrô</span>
+</div>
+</footer>
+
+<script src="js/main.js"></script>
+
 <script>
-(()=>{let plan='';const opts=[...document.querySelectorAll('.plan-option')],next=document.getElementById('continue-plan'),p=document.getElementById('plan-step'),l=document.getElementById('login-step');
-opts.forEach(b=>b.addEventListener('click',()=>{opts.forEach(x=>x.classList.remove('selected'));b.classList.add('selected');plan=b.dataset.plan;next.disabled=false;}));
-next.addEventListener('click',()=>{if(!plan)return;p.classList.remove('active');l.classList.add('active');document.getElementById('selected-plan-label').textContent='Plano selecionado: '+plan;});
-document.getElementById('back-plan').addEventListener('click',()=>{l.classList.remove('active');p.classList.add('active');});
-document.getElementById('gate-login').addEventListener('submit',e=>{e.preventDefault();document.getElementById('gate-error').textContent='A interface está pronta. A validação de usuário, senha e plano precisa ser conectada a um servidor seguro antes de liberar o catálogo.';});
+(() => {
+  let plan = "";
+
+  const opts = [...document.querySelectorAll(".plan-option")];
+  const next = document.getElementById("continue-plan");
+  const planStep = document.getElementById("plan-step");
+  const loginStep = document.getElementById("login-step");
+  const loginForm = document.getElementById("gate-login");
+  const error = document.getElementById("gate-error");
+
+  opts.forEach(button => {
+    button.addEventListener("click", () => {
+      opts.forEach(item => item.classList.remove("selected"));
+      button.classList.add("selected");
+      plan = button.dataset.plan;
+      next.disabled = false;
+    });
+  });
+
+  next.addEventListener("click", () => {
+    if (!plan) return;
+
+    planStep.classList.remove("active");
+    loginStep.classList.add("active");
+
+    document.getElementById("selected-plan-label").textContent =
+      "Plano selecionado: " + plan;
+  });
+
+  document.getElementById("back-plan").addEventListener("click", () => {
+    loginStep.classList.remove("active");
+    planStep.classList.add("active");
+    error.textContent = "";
+  });
+
+  loginForm.addEventListener("submit", async event => {
+    event.preventDefault();
+    error.textContent = "";
+
+    const username = document.getElementById("gate-user").value.trim();
+    const password = document.getElementById("gate-pass").value;
+    const submit = loginForm.querySelector('button[type="submit"]');
+
+    submit.disabled = true;
+    submit.textContent = "VERIFICANDO...";
+
+    try {
+      const response = await fetch(
+        "https://dlretrogamesadmin.pages.dev/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ username, password })
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Usuário ou senha inválidos.");
+      }
+
+      const selectedPlan = plan === "VIP" ? "VIP" : "GRATIS";
+      const accountPlan = String(data.plan || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toUpperCase();
+
+      if (accountPlan !== selectedPlan) {
+        throw new Error("Esse usuário não pertence ao plano selecionado.");
+      }
+
+      document.getElementById("access-gate").remove();
+
+    } catch (err) {
+      error.textContent =
+        err.message || "Erro ao conectar com o servidor. Tente novamente.";
+    } finally {
+      submit.disabled = false;
+      submit.textContent = "ENTRAR";
+    }
+  });
 })();
 </script>
-</body></html>
+
+</body>
+</html>
