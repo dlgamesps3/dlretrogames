@@ -38,5 +38,15 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/dragon_ball_z_super_butouden/capa.webp",
     "description": "",
     "slug": "dragon_ball_z_super_butouden"
+  },
+  {
+    "name": "Mortal kombat ultimate 3",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/mortal_kombat_ultimate_3/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/mortal_kombat_ultimate_3.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/mortal_kombat_ultimate_3/capa.jpg",
+    "description": "",
+    "slug": "mortal_kombat_ultimate_3"
   }
 ]
