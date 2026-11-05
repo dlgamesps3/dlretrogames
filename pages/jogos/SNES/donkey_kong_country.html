@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Donkey Kong Country - DL RETRO GAMES</title>
+
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   padding:20px;
@@ -14,49 +19,158 @@ body{
   font-family:Arial,sans-serif;
   text-align:center;
 }
-.container{max-width:950px;margin:auto}
-h1{color:#00eaff}
-.console{color:#aaa;margin-bottom:20px}
+
+.container{
+  max-width:850px;
+  margin:auto;
+}
+
+h1{
+  color:#00eaff;
+  font-size:30px;
+}
+
+.console{
+  color:#aaa;
+  margin-bottom:20px;
+}
+
 .cover{
-  width:180px;
-  max-width:80%;
+  width:220px;
+  max-width:85%;
   border-radius:12px;
   margin:10px auto 20px;
+  display:block;
 }
-.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.description{
+  background:#111a2d;
+  border:1px solid #193c55;
+  border-radius:12px;
+  padding:20px;
+  margin:20px auto;
+  text-align:left;
+  line-height:1.7;
+  color:#ddd;
+}
+
+.description h2{
+  color:#00eaff;
+  margin-top:0;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:25px 0;
+}
+
 .btn{
   display:inline-block;
-  padding:14px 22px;
+  padding:15px 24px;
   border-radius:8px;
   background:#00d9ff;
   color:#001018;
   font-weight:bold;
   text-decoration:none;
+  border:0;
+  cursor:pointer;
+  font-size:15px;
 }
-.btn.download{background:#00e676}
-iframe{
+
+.btn.download{
+  background:#00e676;
+}
+
+#emulator{
+  display:none;
+  margin-top:25px;
+}
+
+#emulator iframe{
   width:100%;
   height:70vh;
   min-height:400px;
-  margin-top:25px;
   border:2px solid #00d9ff;
   border-radius:10px;
   background:#000;
 }
 </style>
 </head>
+
 <body>
 <div class="container">
+
   <h1>Donkey Kong Country</h1>
+
   <div class="console">SNES</div>
-  <img class="cover" src="https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/capa.jpg" alt="Donkey Kong Country">
+
+  <img
+    class="cover"
+    src="https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/capa.jpg"
+    alt="Donkey Kong Country"
+  >
+
+  <section class="description">
+    <h2>Sobre o jogo</h2>
+    <p>Conheça Donkey Kong Country, um clássico do console SNES. Prepare-se para reviver essa aventura retrô!</p>
+  </section>
+
   <div class="buttons">
-    <a class="btn" href="https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/" target="_blank" rel="noopener">
-      ABRIR JOGO
+
+    <button
+      class="btn"
+      id="play-button"
+      type="button"
+    >
+      JOGAR ONLINE
+    </button>
+
+    
+    <a
+      class="btn download"
+      href="https://danielstoreps3.github.io/DLHE/PAGINAS/GODOFWARCOLECTION.html"
+      target="_blank"
+      rel="noopener"
+    >
+      BAIXAR JOGO
     </a>
-    <a class="btn download" href="https://danielstoreps3.github.io/DLHE/PAGINAS/GODOFWARCOLECTION.html" target="_blank" rel="noopener">BAIXAR JOGO</a>
+    
+
   </div>
-  <iframe src="https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/" title="Donkey Kong Country" allowfullscreen></iframe>
+
+  <div id="emulator"></div>
+
 </div>
+
+<script>
+document.getElementById("play-button").addEventListener("click", function() {
+
+  const emulator = document.getElementById("emulator");
+
+  if (!emulator.dataset.loaded) {
+
+    const frame = document.createElement("iframe");
+
+    frame.src = "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/";
+    frame.title = "Donkey Kong Country";
+    frame.allowFullscreen = true;
+
+    emulator.appendChild(frame);
+    emulator.dataset.loaded = "true";
+
+  }
+
+  emulator.style.display = "block";
+
+  emulator.scrollIntoView({
+    behavior: "smooth"
+  });
+
+});
+</script>
+
 </body>
 </html>
