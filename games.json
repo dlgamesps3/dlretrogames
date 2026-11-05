@@ -28,5 +28,15 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/aladdin_pt_br/capa.jpg",
     "description": "",
     "slug": "aladdin_pt_br"
+  },
+  {
+    "name": "Dragon Ball Z: Super Butouden",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/dragon_ball_z_super_butouden/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/dragon_ball_z_super_butouden.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/dragon_ball_z_super_butouden/capa.webp",
+    "description": "",
+    "slug": "dragon_ball_z_super_butouden"
   }
 ]
