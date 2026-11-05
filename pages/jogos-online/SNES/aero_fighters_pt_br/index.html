@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aero Fighters PT-BR - DL RETRO GAMES</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100%;min-height:100%;background:#050914;color:#fff;font-family:Arial,sans-serif}
+body{display:flex;flex-direction:column;align-items:center}
+.header{width:100%;padding:15px;text-align:center;background:#0b1426;border-bottom:1px solid #00d9ff}
+.header h1{margin:0;color:#00eaff;font-size:22px}
+.header p{margin:7px 0 0;color:#aaa;font-size:13px}
+#game{width:100%;max-width:1200px;min-height:70vh;margin:15px auto;background:#000}
+.footer{padding:15px;color:#777;font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<header class="header">
+<h1>Aero Fighters PT-BR</h1>
+<p>SNES • DL RETRO GAMES</p>
+</header>
+<div id="game"></div>
+<div class="footer">DL RETRO GAMES - Jogos clássicos</div>
+<script>
+window.EJS_player = "#game";
+window.EJS_core = "snes9x";
+window.EJS_gameUrl = "./Aero_Fighters.sfc";
+window.EJS_gameName = "Aero Fighters PT-BR";
+window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+window.EJS_startOnLoaded = true;
+</script>
+<script src="https://cdn.emulatorjs.org/stable/data/loader.js"></script>
+</body>
+</html>

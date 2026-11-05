@@ -68,5 +68,16 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/amazing_spider_man_the_lethal_foes/capa.png",
     "description": "",
     "slug": "amazing_spider_man_the_lethal_foes"
+  },
+  {
+    "name": "Aero Fighters PT-BR",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/aero_fighters_pt_br/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/aero_fighters_pt_br.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/aero_fighters_pt_br/capa.jpg",
+    "description": "Aero Fighters PT-BR é um jogo do console SNES. Prepare-se para reviver esse clássico dos videogames, explorar seus desafios e aproveitar toda a experiência retrô. Disponível no DL RETRO GAMES para jogar online.",
+    "descriptionGenerated": true,
+    "slug": "aero_fighters_pt_br"
   }
 ]
