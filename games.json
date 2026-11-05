@@ -58,5 +58,15 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/wolverine_instinto_selvagem/capa.webp",
     "description": "",
     "slug": "wolverine_instinto_selvagem"
+  },
+  {
+    "name": "Amazing Spider-Man, The - Lethal Foes",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/amazing_spider_man_the_lethal_foes/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/amazing_spider_man_the_lethal_foes.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/amazing_spider_man_the_lethal_foes/capa.png",
+    "description": "",
+    "slug": "amazing_spider_man_the_lethal_foes"
   }
 ]
