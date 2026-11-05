@@ -18,9 +18,10 @@
   {
     "name": "Donkey Kong Country",
     "console": "SNES",
-    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/donkey_kong_country/",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/donkey_kong_country.html",
     "downloadUrl": "https://danielstoreps3.github.io/DLHE/PAGINAS/GODOFWARCOLECTION.html",
-    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/donkey_kong_country/capa.jpg",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/capa.jpg",
     "slug": "donkey_kong_country"
   }
 ]
