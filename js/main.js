@@ -1,3 +1,4 @@
+
 const searchInput = document.querySelector("#search-game");
 const consoleFilter = document.querySelector("#filter-console");
 const grid = document.querySelector("#games-list");
@@ -45,7 +46,7 @@ function applyFilters() {
 }
 
 function addGame(game) {
-  if (!grid || !game.name) return;
+  if (!grid || !game || !game.name) return;
 
   const name = String(game.name).trim();
   const consoleName = normalizeConsole(game.console);
@@ -60,10 +61,11 @@ function addGame(game) {
   card.dataset.name = normalizeName(name);
   card.dataset.console = consoleName.toLowerCase();
 
-  const image = card.querySelector("img") || document.createElement("img");
+  const image = document.createElement("img");
   image.src = game.coverUrl || "img/capas/sem-capa.jpg";
   image.alt = name;
   image.loading = "lazy";
+
   image.onerror = function() {
     this.onerror = null;
     this.src = "img/capas/sem-capa.jpg";
@@ -84,28 +86,8 @@ function addGame(game) {
     `pages/jogos/${consoleName}/${slug}.html`;
 
   info.appendChild(title);
-
-  if (game.onlineUrl) {
-    const online = document.createElement("a");
-    online.className = "btn";
-    online.href = game.onlineUrl;
-    online.textContent = "JOGAR ONLINE";
-    online.style.marginTop = "8px";
-    info.appendChild(online);
-  }
-
-  if (game.downloadUrl) {
-    const download = document.createElement("a");
-    download.className = "btn";
-    download.href = game.downloadUrl;
-    download.textContent = "BAIXAR JOGO";
-    download.style.marginTop = "8px";
-    download.target = "_blank";
-    download.rel = "noopener noreferrer";
-    info.appendChild(download);
-  }
-
   info.appendChild(enter);
+
   card.replaceChildren(image, info);
 
   if (!existing) {
