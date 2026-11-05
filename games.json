@@ -48,5 +48,15 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/donkey_kong_country/capa.jpg",
     "description": "",
     "slug": "donkey_kong_country"
+  },
+  {
+    "name": "Wolverine: Instinto Selvagem",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/wolverine_instinto_selvagem/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/wolverine_instinto_selvagem.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/wolverine_instinto_selvagem/capa.webp",
+    "description": "",
+    "slug": "wolverine_instinto_selvagem"
   }
 ]
