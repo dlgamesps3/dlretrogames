@@ -79,5 +79,15 @@
     "description": "Aero Fighters PT-BR é um jogo do console SNES. Prepare-se para reviver esse clássico dos videogames, explorar seus desafios e aproveitar toda a experiência retrô. Disponível no DL RETRO GAMES para jogar online.",
     "descriptionGenerated": true,
     "slug": "aero_fighters_pt_br"
+  },
+  {
+    "name": "Batman Forever PT-BR",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/batman_forever_pt_br/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/batman_forever_pt_br.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/batman_forever_pt_br/capa.webp",
+    "description": "Batman é um super-herói que aparece nas histórias em quadrinhos americanas publicadas pela DC Comics.",
+    "slug": "batman_forever_pt_br"
   }
 ]
