@@ -89,5 +89,15 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/batman_forever_pt_br/capa.webp",
     "description": "Batman é um super-herói que aparece nas histórias em quadrinhos americanas publicadas pela DC Comics.",
     "slug": "batman_forever_pt_br"
+  },
+  {
+    "name": "Batman Returns",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/batman_returns/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/batman_returns.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/batman_returns/capa.jpg",
+    "description": "Batman Returns: um clássico de SNES para jogar no DL RETRO GAMES.",
+    "slug": "batman_returns"
   }
 ]
