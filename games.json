@@ -99,5 +99,15 @@
     "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/batman_returns/capa.jpg",
     "description": "Batman Returns: um clássico de SNES para jogar no DL RETRO GAMES.",
     "slug": "batman_returns"
+  },
+  {
+    "name": "Sunset Riders",
+    "console": "SNES",
+    "onlineUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/sunset_riders/",
+    "pageUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos/SNES/sunset_riders.html",
+    "downloadUrl": "",
+    "coverUrl": "https://dlgamesps3.github.io/dlretrogames/pages/jogos-online/SNES/sunset_riders/capa.jpg",
+    "description": "Sunset Riders (サンセットライダーズ Sansetto Raidāzu) é um jogo de faroeste, no estilo plataforma 2D, desenvolvido pela Konami em 1991 para arcade.",
+    "slug": "sunset_riders"
   }
 ]
